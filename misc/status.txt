@@ -1,0 +1,5 @@
+ASHOK KHARE
+
+-- Kali Plan --
+Using Kali: I am planning to use Kali for this course.
+Installation Status: Kali is fully installed on the VMware workstation on my computer.
