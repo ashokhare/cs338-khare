@@ -1,0 +1,21 @@
+AUTHOR NAME: ASHOK KHARE
+COLLABORATORS: EMMA ROSKOPF, LILY HAAS
+
+-- QUESTIONS --
+To find your computer’s IP address for its current internet connection, use the command 'ifconfig' in the console. On the second line of the ‘eth0’ section, the number directly after ‘inet’ is the IP address.
+
+To determine the IP address associated with a given host name, type 'nslookup hostname' into the console, replacing hostname with the host name. The address number after the host name is the associated IP address. Sources: https://www.geeksforgeeks.org/nslookup-command-in-linux-with-examples/
+
+To determine the host name(s) associated with a given IP address, type 'nslookup IP address' into the console, replacing IP address with the IP address. This will list all the possible hostnames associated with the address. Sources: https://www.geeksforgeeks.org/nslookup-command-in-linux-with-examples/
+
+To move a file from the Kali virtual machine to somewhere else you can save it, on the console of the receiving location, input 'nc -l 1234 > filename' (where 1234 is any port number and filename is the name of the file to transfer). Then, using the console on Kali, input 'nc hostname 1234 < filename' (where hostname is the hostname or IP address of the receiving location, 1234 is the same port number used earlier, and filename is the name of the file to transfer). This process will move the file from Kali to the new location. Sources: https://docs.oracle.com/cd/E86824_01/html/E54763/netcat-1.html
+
+To tell whether there is a process listening in on a given port on a given host, enter the command 'nmap -p port number web address', replacing port number with the given port and web address with the web address of the given host. After running the command, if the port’s state is recorded as ‘open’, then there is a process listening to the port. Sources: https://nmap.org/book/man.html
+
+To tell which ports have processes listening in on them on a given host, enter the command 'nmap web address', replacing web address with the web address of the given host. After running the command, examine all the ports listed in the results. Ports whose states are recorded as ‘open’ have processes listening in on them. Sources: https://nmap.org/book/man.html
+
+To retrieve or save a given webpage in a file on your system, use the command 'wget web address', replacing web address with the web address of the web page. The resulting file will be saved in the HTML file index.html. Sources: https://www.gnu.org/software/wget/manual/wget.html#Overview
+
+To view the HTTP headers sent back by a specified web server when you request one of its pages, use the command 'curl -v web address', replacing web address with the web address of the particular web page. The set of lines starting with the character ‘<’ detail the HTTP headers sent back by the web server.
+
+To view the HTTP headers your computer sends to the web server for questions 7 and 8, do the following. For question 7, use the command 'wget -d web address', replacing web address with the web address of a webpage. The section of results between the -- request begin -- and -- request end -- lines detail the HTTP headers your computer sends to the web server. For question 8, use the same command as described in that question; this time, the set of lines starting with the character ‘>’ detail the HTTP headers your computer sends to the web server. Sources: https://www.linuxsecrets.com/1467-using-custom-http-headers-with-wget#:~:text=To%20view%20default%20HTTP%20request,use%20%22%2Dd%22%20option.&text=Sometimes%20you%20may%20want%20to,request%20header%20used%20by%20wget.
