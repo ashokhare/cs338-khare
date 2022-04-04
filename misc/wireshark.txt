@@ -1,0 +1,65 @@
+WIRESHARK ASSIGNMENT - ASHOK KHARE
+
+== DAYTIME QUESTIONS ==
+
+1. 
+1 192.168.5.128 129.6.15.28 TCP 46538->13 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1
+2 129.6.15.28 192.168.5.128 TCP 13->46538 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+3 192.168.5.128 129.6.15.28 TCP [ACK] Seq=1 Ack=1 Win=64240 Len=0
+
+2.
+The port used by the client during this interaction is 46538. The client needs to specify a port because the server needs to know which port on the receiving machine is expecting the response. If the client does not specify a port, the packets could be sent to another port that isn’t expecting data and won’t do anything with it instead of the intended port that is expecting to receive and potentially do something with the response data.
+
+3.
+4 129.6.15.28 192.168.5.128 DAYTIME DAYTIME Response
+
+4.
+First, the protocol type (Response) is listed. The actual Daytime information starts with a new line; 
+then the modified Julian date; 
+then the date in year/month/day format; 
+then the time in hours/minutes/seconds format; 
+then a code representing whether it is Standard Time or Daylight Savings Time; 
+then a code that indicates if a leap-second will be added or subtracted on the last day of the month; 
+then a digit that indicates server health; 
+then the number of milliseconds the time code is advanced to account for network delays; 
+then a marker indicating we are receiving Coordinated Universal Time (UTC) from the NIST; 
+and finally an on-time marker (the asterisk). 
+Source (documentation of each part of the Daytime response): “NIST Internet Time Service (ITS).” NIST, 14 Dec. 2021, https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its 
+
+5.
+[SYN] stands for Synchronization; a type of packet used to initiate communication with another system.
+
+6.
+[ACK] stands for Acknowledgment; a response indicating a system received a message.
+
+7.
+[FIN] stands for Finalize; a packet used to signal that a system wants to terminate the current connection.
+
+8.
+The nc client initiated the closing of the TCP connection. I can tell because the nc client, which has the IP address 192.168.5.128, was the first to send a [FIN] packet, meaning it was the first to request to finalize the exchange.
+
+== HTTP QUESTIONS ==
+
+1.
+There are a total of 2 TCP connections: One between port 38278 on the client and port 80 on the server, and another between port 38280 on the client and port 80 on the server.
+
+2.
+The homepage (index.html) was requested in frame 7. The frame summary is as follows:
+7 192.168.5.128 45.79.89.123 HTTP GET /index.html HTTP/1.1
+Based on the summary, it is evident that the client sent an HTTP GET request to the server to retrieve the file index.html (the homepage).
+
+3.
+The photograph (jeff_square_head.jpg) was requested in frame 11. The frame summary is as follows:
+11 192.168.5.128 45.79.89.123 HTTP GET /jeff_square_head.jpg HTTP/1.1
+Based on the summary, the client sent an HTTP GET request to the server to retrieve the file jeff_square_head.jpg (the photograph).
+
+== OTHER QUESTIONS ==
+
+1.
+What is the difference between ‘Sequence number’ and ‘Raw sequence number’?
+
+2.
+What does the acknowledgement number represent? What is the difference between the ‘relative’ acknowledgement number and the ‘raw’ acknowledgement number?
+
+3.
+In what situations would multiple TCP connections be needed instead of just one?
